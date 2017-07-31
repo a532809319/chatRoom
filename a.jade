@@ -1,0 +1,42 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    body
+        h1 socket.io聊天室
+        p
+            span#status
+            span ，
+            span#roomstatus
+        p#notice.notice
+
+        a(href='/')
+        [退出] 聊天室
+
+hr
+
+div
+    h3 聊天记录
+
+div.scrollbar#msg.msgbox
+
+hr
+div
+    textarea(id='msgsend' name='msgsend' placeholder='输入消息' rows='4').form-control
+br
+div
+    a.btn.btn-primary(onclick="OL_SendMsg()") 发送
+hr
+form.form-inline
+    div.form-group
+        input.form-control(id='newnickname' placeholder='新昵称')
+        a.btn.btn-danger(onclick="OL_ModifyNickName()") 修改昵称
+
+hr
+h3 系统消息
+div#history
+
+script(src='/javascripts/jquery.min.js')
+script(src='https://cdn.socket.io/socket.io-1.4.5.js')
